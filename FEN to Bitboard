@@ -1,0 +1,93 @@
+#include <iostream>
+
+int main()
+{
+	std::cout << "input position\n";
+	char fen[64];
+	std::cin >> fen;
+	bool bitboard[12][64]{};
+	int boardPosOffset{};
+	for (int x{}; x < 64; ++x)
+	{
+		if (fen[x] == '/')
+		{
+			++boardPosOffset;
+		}
+		if (fen[x] == '8')
+		{
+			boardPosOffset = boardPosOffset - 7;
+		}
+		if (fen[x] == '7')
+		{
+			boardPosOffset = boardPosOffset - 6;
+		}
+		if (fen[x] == '6')
+		{
+			boardPosOffset = boardPosOffset - 5;
+		}
+		if (fen[x] == '5')
+		{
+			boardPosOffset = boardPosOffset - 4;
+		}
+		if (fen[x] == '4')
+		{
+			boardPosOffset = boardPosOffset - 3;
+		}
+		if (fen[x] == '3')
+		{
+			boardPosOffset = boardPosOffset - 2;
+		}
+		if (fen[x] == '2')
+		{
+			boardPosOffset = boardPosOffset - 1;
+		}
+		if (fen[x] == 'p')
+		{
+			bitboard[0][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'P')
+		{
+			bitboard[1][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'n')
+		{
+			bitboard[2][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'N')
+		{
+			bitboard[3][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'b')
+		{
+			bitboard[4][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'B')
+		{
+			bitboard[5][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'r')
+		{
+			bitboard[6][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'R')
+		{
+			bitboard[7][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'q')
+		{
+			bitboard[8][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'Q')
+		{
+			bitboard[9][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'k')
+		{
+			bitboard[10][x - boardPosOffset] = true;
+		}
+		if (fen[x] == 'K')
+		{
+			bitboard[11][x - boardPosOffset] = true;
+		}
+	}
+}
